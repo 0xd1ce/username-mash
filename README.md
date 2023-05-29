@@ -6,12 +6,12 @@ Based on the original script from https://github.com/superkojiman/ to include do
 python3 username-mash.py --input names.lst --domain example.com --output usernames.lst
 
 
-#### names.lst
+### names.lst
 John Doe
 John Smith
 Sally Jones
 
-#### usernames.lst
+## usernames.lst
 johndoe@example.com
 doejohn@example.com
 john.doe@example.com
