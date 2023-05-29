@@ -7,7 +7,7 @@ python3 username-mash.py --input names.lst --domain example.com --output usernam
 
 
 ### names.lst
-John Doe
++ John Doe
 
 ### usernames.lst
 + johndoe@example.com
