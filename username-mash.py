@@ -1,23 +1,27 @@
 #!/usr/bin/env python
 import sys
 import os.path
+import argparse
 
 if __name__ == "__main__":
-    if len(sys.argv) != 4:
-        print("usage: {} names.txt domain output.txt".format(sys.argv[0]))
-        sys.exit(0)
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--input", help="input file containing names", required=True)
+    parser.add_argument("--domain", help="domain for email addresses", required=True)
+    parser.add_argument("--output", help="output file for generated email addresses", required=True)
+    args = parser.parse_args()
 
-    if not os.path.exists(sys.argv[1]):
-        print("{} not found".format(sys.argv[1]))
-        sys.exit(0)
+    input_file = args.input
+    domain = args.domain
+    output_file = args.output
 
-    domain = sys.argv[2]
-    output_file = sys.argv[3]
+    if not os.path.exists(input_file):
+        print("{} not found".format(input_file))
+        sys.exit(0)
 
     output_list = []
 
     with open(output_file, 'w') as f:
-        for line in open(sys.argv[1]):
+        for line in open(input_file):
             name = ''.join([c for c in line if c == " " or c.isalpha()])
 
             tokens = name.lower().split()
